@@ -1,0 +1,203 @@
+.paint-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f3db06;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+}
+
+.controls-container {
+  background: #3c2cc7;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #f4f1f1;
+}
+
+input[type="file"] {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+input[type="file"]:hover {
+  border-color: #4d90fe;
+}
+
+.color-picker {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.color-picker:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.brush-slider {
+  width: 100px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.brush-slider:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.brush-slider:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.controls button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4d90fe, #357abd);
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.controls button:hover:not(:disabled) {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #3267d6, #2a569b);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.controls button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+
+.controls button.active {
+  background: linear-gradient(135deg, #ff6b6b, #d94c4c);
+}
+
+.controls button.active:hover {
+  background: linear-gradient(135deg, #e55a5a, #c43a3a);
+}
+
+.cancel-image {
+  background: linear-gradient(135deg, #ff4d4d, #cc0000);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.cancel-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.history-button {
+  background: linear-gradient(135deg, #4d90fe, #357abd);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+}
+
+.history-button:disabled {
+  background: #cccccc;
+}
+
+.save-button {
+  background: linear-gradient(135deg, #28a745, #1e7e34);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+}
+
+.save-button:hover {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #218838, #186328);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.paint-canvas {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  .paint-canvas {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+  }
+
+  .controls-container {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .control-label {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .brush-slider {
+    width: 100%;
+  }
+}
