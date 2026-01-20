@@ -20,12 +20,27 @@ const PaintApp = () => {
     context.lineCap = 'round';
     context.lineJoin = 'round';
     contextRef.current = context;
+  }, []);
+
+  useEffect(() => {
+    if (image) {
+      const canvas = canvasRef.current;
+      const context = contextRef.current;
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(image, 0, 0, canvas.width, canvas.height);
+      saveCanvasState();
+    }
+  }, [image]);
+
+  useEffect(() => {
     if (history.length === 0) {
       saveCanvasState();
-    } else {
-      restoreCanvasState();
     }
-  }, [image, history, historyIndex]);
+  }, [history]);
+
+  useEffect(() => {
+    restoreCanvasState();
+  }, [historyIndex]);
 
   const saveCanvasState = () => {
     const canvas = canvasRef.current;

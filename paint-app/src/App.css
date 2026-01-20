@@ -3,13 +3,13 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: #f3db06;
+  background-color: #39b9d3;
   min-height: 100vh;
   font-family: 'Arial', sans-serif;
 }
 
 .controls-container {
-  background: #3c2cc7;
+  background: #215c66;
   border-radius: 12px;
   padding: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -109,7 +109,7 @@ input[type="file"]:hover {
 }
 
 .controls button.active {
-  background: linear-gradient(135deg, #ff6b6b, #d94c4c);
+  background: linear-gradient(135deg, #37d2dd, #d94c4c);
 }
 
 .controls button.active:hover {
@@ -164,6 +164,8 @@ input[type="file"]:hover {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   animation: fadeIn 0.5s ease;
+  width: 800px;
+  height: 600px;
 }
 
 @keyframes fadeIn {
@@ -177,9 +179,9 @@ input[type="file"]:hover {
 
 @media (max-width: 900px) {
   .paint-canvas {
-    width: 100%;
-    height: auto;
-    max-width: 600px;
+    width: 800px;
+    height: 600px;
+    max-width: none;
   }
 
   .controls-container {
